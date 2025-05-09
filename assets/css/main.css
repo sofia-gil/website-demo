@@ -635,24 +635,6 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
-/* Make sure the logo is a flex container */
-.logo {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center;     /* Centers vertically */
-    height: 100px;           /* Adjust this height as needed */
-}
-
-/* Profile image styling */
-.profile-image {
-    width: 100px; /* Adjust size as necessary */
-    height: 100px; /* Adjust size as necessary */
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-}
-
 /* Image */
 
 	.image {
@@ -1311,14 +1293,36 @@ input, select, textarea {
 		#header .logo {
 			width: 5.5rem;
 			height: 5.5rem;
-			line-height: 5.5rem;
 			border: solid 1px #ffffff;
 			border-radius: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden; /* This makes sure the image stays inside the circle */
 		}
 
 			#header .logo .icon:before {
 				font-size: 2rem;
 			}
+
+/* Make sure the logo is a flex container */
+.logo {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    height: 100px;           /* Adjust this height as needed */
+}
+
+/* Profile image styling */
+.profile-image {
+    width: 100px; /* Adjust size as necessary */
+    height: 100px; /* Adjust size as necessary */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
 
 		#header .content {
 			border-style: solid;
