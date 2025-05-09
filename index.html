@@ -119,88 +119,89 @@
 							</article>
 
 						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="https://formspree.io/f/mjkwowzd">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<!-- Success/ Error message section -->
-								<div id="form-message" style="display: none; padding: 15px; border-radius: 5px; text-align: center;">
-									<p id="message-text"></p>
-								</div>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</article>
+						<article id="contact">
+						    <h2 class="major">Contact</h2>
+						    <form id="contact-form" method="post">
+						        <div class="fields">
+						            <div class="field half">
+						                <label for="name">Name</label>
+						                <input type="text" name="name" id="name" required />
+						            </div>
+						            <div class="field half">
+						                <label for="email">Email</label>
+						                <input type="email" name="email" id="email" required />
+						            </div>
+						            <div class="field">
+						                <label for="message">Message</label>
+						                <textarea name="message" id="message" rows="4" required></textarea>
+						            </div>
+						        </div>
+						        <ul class="actions">
+						            <li><input type="submit" value="Send Message" class="primary" /></li>
+						            <li><input type="reset" value="Reset" /></li>
+						        </ul>
+						    </form>
+						
+						    <!-- Success/ Error message section -->
+						    <div id="form-message" style="display: none; padding: 15px; border-radius: 5px; text-align: center;">
+						        <p id="message-text"></p>
+						    </div>
+						
+						    <ul class="icons">
+						        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						        <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						    </ul>
+						</article>
 						
 						<!-- CSS for Success/Error messages -->
 						<style>
-						    /* Success Message */
 						    #form-message.success {
 						        background-color: #4CAF50;
 						        color: white;
 						    }
 						
-						    /* Error Message */
 						    #form-message.error {
 						        background-color: #f44336;
 						        color: white;
 						    }
 						</style>
 						
-						<!-- JavaScript for form submission via AJAX and custom messages -->
+						<!-- JavaScript -->
 						<script>
 						    document.querySelector('#contact-form').addEventListener('submit', function(event) {
-						        event.preventDefault();  // Prevents the default form submission behavior
+						        event.preventDefault();
 						
 						        const formData = new FormData(this);
 						        const messageDiv = document.getElementById('form-message');
 						        const messageText = document.getElementById('message-text');
 						
-						        // Use Formspree's endpoint with AJAX to submit the form
-						        fetch('https://formspree.io/f/mnqowgjz', {  // Replace with your Formspree endpoint
+						        fetch('https://formspree.io/f/mjkwowzd', {
 						            method: 'POST',
-						            body: formData
+						            body: formData,
+						            headers: {
+						                'Accept': 'application/json'
+						            }
 						        })
 						        .then(response => {
 						            if (response.ok) {
-						                // Success: Show success message
 						                messageDiv.className = 'success';
 						                messageText.innerText = 'Thank you for your message! We will get back to you soon.';
-						                messageDiv.style.display = 'block';  // Show success message
-						                document.querySelector('#contact-form').reset();  // Reset form fields
+						                messageDiv.style.display = 'block';
+						                this.reset();
 						            } else {
-						                // Error: Show error message
-						                messageDiv.className = 'error';
-						                messageText.innerText = 'There was an error submitting your form. Please try again.';
-						                messageDiv.style.display = 'block';  // Show error message
+						                response.json().then(data => {
+						                    messageDiv.className = 'error';
+						                    messageText.innerText = data.error || 'There was an error submitting your form.';
+						                    messageDiv.style.display = 'block';
+						                });
 						            }
 						        })
-						        .catch(error => {
-						            // Catch any errors in the request
+						        .catch(() => {
 						            messageDiv.className = 'error';
-						            messageText.innerText = 'There was an error submitting your form. Please try again.';
-						            messageDiv.style.display = 'block';  // Show error message
+						            messageText.innerText = 'There was an error submitting your form.';
+						            messageDiv.style.display = 'block';
 						        });
 						    });
 						</script>
