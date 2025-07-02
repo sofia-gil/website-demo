@@ -171,7 +171,7 @@
 								    <p>Ready to take your CV to the next level? I’ll help you showcase your skills and experience with a clean, ATS-friendly design that stands out to recruiters. Here’s how it works:</p>
 								    <ul>
 								      <li><strong>Step 1:</strong> Share your current CV, a brief overview of your career so far, and 2–3 job listings you’re interested in.</li>
-								      <li><strong>Step 2:</strong> Choose your package.</li>
+								      <li><strong>Step 2:</strong> Choose your packageee.</li>
 								      <li><strong>Step 3:</strong> I provide tailored feedback and redesign your CV for maximum impact, optimized for applicant tracking systems (ATS) used by employers.</li>
 								    </ul>
 								
@@ -611,6 +611,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
       }, 100);
     }
   };
+
+  // Close all modals when the hash (section) changes
+  window.addEventListener('hashchange', () => {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => modal.style.display = 'none');
+  });
 </script>
 	</body>
 </html>
