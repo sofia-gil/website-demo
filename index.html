@@ -171,7 +171,7 @@
 								    <p>Ready to take your CV to the next level? I’ll help you showcase your skills and experience with a clean, ATS-friendly design that stands out to recruiters. Here’s how it works:</p>
 								    <ul>
 								      <li><strong>Step 1:</strong> Share your current CV, a brief overview of your career so far, and 2–3 job listings you’re interested in.</li>
-								      <li><strong>Step 2:</strong> Choose your packageeeeeeeeeeeeee.</li>
+								      <li><strong>Step 2:</strong> Choose your package.</li>
 								      <li><strong>Step 3:</strong> I provide tailored feedback and redesign your CV for maximum impact, optimized for applicant tracking systems (ATS) used by employers.</li>
 								    </ul>
 								
@@ -579,21 +579,35 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		<script>
   function openModal(id) {
     document.getElementById(id).style.display = 'block';
+    history.replaceState(null, null, ' '); // Remove #modal-id from URL
   }
 
   function closeModal(id) {
     document.getElementById(id).style.display = 'none';
   }
 
+  // Close modals on outside click
+  window.addEventListener('click', function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(function(modal) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+
   // Close all modals on page load
   window.onload = function () {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => modal.style.display = 'none');
 
-    // Optional: Scroll to top of services section if arriving from another tab
+    // Scroll to #services if that's the hash
     if (window.location.hash === "#services") {
       setTimeout(() => {
-        window.scrollTo({ top: document.getElementById("services").offsetTop, behavior: 'smooth' });
+        const section = document.getElementById("services");
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
       }, 100);
     }
   };
