@@ -1678,19 +1678,19 @@ input, select, textarea {
 
 /* Arrow bounce animation */
 .modal > div {
-  position: relative;
+  position: relative;  /* VERY important for arrow positioning */
 }
 
 .scroll-arrow {
-  position: absolute;          /* absolute positioning inside relative parent */
-  bottom: 16px;                /* 16px from bottom */
+  position: absolute;          /* absolute inside relative parent */
+  bottom: 16px;                /* distance from bottom */
   left: 50%;                  /* center horizontally */
   transform: translateX(-50%);
   width: 32px;                /* circle size */
   height: 32px;
   background-color: rgba(0, 0, 0, 0.7);  /* semi-transparent black circle */
   border-radius: 50%;         /* circle shape */
-  display: flex;              /* center arrow inside circle */
+  display: flex;              /* center arrow */
   align-items: center;
   justify-content: center;
   font-size: 20px;            /* arrow size */
@@ -1699,6 +1699,10 @@ input, select, textarea {
   user-select: none;
   z-index: 10;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4); /* subtle shadow */
+  background-image: none !important;  /* force remove any gradients */
+  width: 32px !important;             /* force fixed width */
+  height: 32px !important;            /* force fixed height */
+  padding: 0 !important;              /* no padding */
 }
 
 /* Hide arrow when user scrolls */
