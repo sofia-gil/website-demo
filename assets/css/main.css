@@ -1679,14 +1679,18 @@ input, select, textarea {
 /* Arrow bounce animation */
 .scroll-arrow {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
+  bottom: 0;               /* Stick right to the bottom */
+  left: 50%;              /* Center horizontally */
   transform: translateX(-50%);
   font-size: 28px;
   color: rgba(255, 255, 255, 0.7);
   pointer-events: none;
   user-select: none;
   z-index: 10;
+  width: 100%;            /* Full width container */
+  text-align: center;     /* Center the arrow */
+  background: linear-gradient(to top, #2c2c2c 40%, transparent); /* Fade behind arrow */
+  padding-bottom: 10px;   /* Some padding below arrow */
 }
 
 @keyframes bounce {
