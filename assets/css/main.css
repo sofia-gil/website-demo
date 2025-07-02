@@ -1682,19 +1682,23 @@ input, select, textarea {
 }
 
 .scroll-arrow {
-  position: sticky;  /* makes it stay visible at bottom until scrolled */
-  bottom: 10px;
-  left: 50%;
+  position: absolute;          /* absolute positioning inside relative parent */
+  bottom: 16px;                /* 16px from bottom */
+  left: 50%;                  /* center horizontally */
   transform: translateX(-50%);
-  font-size: 28px;
-  color: rgba(255, 255, 255, 0.7);
+  width: 32px;                /* circle size */
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.7);  /* semi-transparent black circle */
+  border-radius: 50%;         /* circle shape */
+  display: flex;              /* center arrow inside circle */
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;            /* arrow size */
+  color: white;               /* arrow color */
   pointer-events: none;
   user-select: none;
   z-index: 10;
-  background: linear-gradient(to top, #2c2c2c 80%, transparent);
-  padding-bottom: 10px;
-  width: 100%;
-  text-align: center;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4); /* subtle shadow */
 }
 
 /* Hide arrow when user scrolls */
