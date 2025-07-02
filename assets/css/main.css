@@ -1692,8 +1692,3 @@ input, select, textarea {
   background: linear-gradient(to top, #2c2c2c 40%, transparent); /* Fade behind arrow */
   padding-bottom: 10px;   /* Some padding below arrow */
 }
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-}
