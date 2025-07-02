@@ -150,16 +150,7 @@
 							      <p style="font-size: 1.1rem; margin-bottom: 40px;">
 							        Whether you're job hunting or polishing your professional brand, I can help you stand out.
 							      </p>
-							      <ul style="list-style: none; padding: 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-							       <li>
-								 <div class="service-square" 
-								     onclick="openModal('modal-cv-review', '#services/cv-review')" 
-								     style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
-								  <strong>📄 CV Review & Redesign</strong><br>
-								  Feedback + design for modern, professional impact.
-								</div>
-								</li>
-							      </ul>
+							     
 								<ul style="list-style: none; padding: 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
 							       <li>
 								 <div class="service-square" 
@@ -675,5 +666,20 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     }
   });
 </script>
+
+<!-- Add this just before </body> -->
+<script>
+  const modalContent = document.querySelector('#modal-cv-review > div');
+  const scrollArrow = modalContent.querySelector('.scroll-arrow');
+
+  modalContent.addEventListener('scroll', () => {
+    if (modalContent.scrollTop > 20) {
+      scrollArrow.style.display = 'none';
+    } else {
+      scrollArrow.style.display = 'block';
+    }
+  });
+</script>
+</body>
 	</body>
 </html>
