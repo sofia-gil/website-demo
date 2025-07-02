@@ -169,7 +169,7 @@
 								</li>
 							       <li>
 								    <div class="service-square"
-								         onclick="openModal('modal-coverletter', '#services/cover-letter')"
+								         onclick="openModal('modal-cover-letter', '#services/cover-letter')"
 								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
 								      <strong>📝 Cover Letter Writing</strong><br>
 								      Tailored cover letters for your target roles.
@@ -177,7 +177,7 @@
 								  </li>
 								  <li>
 								    <div class="service-square"
-								         onclick="openModal('modal-cvtailoring', '#services/global-cv')"
+								         onclick="openModal('modal-global-cv', '#services/global-cv')"
 								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
 								      <strong>🌍 CV Tailoring for Global Roles</strong><br>
 								      Adapt your CV to meet expectations in different countries.
@@ -185,7 +185,7 @@
 								  </li>
 								  <li>
 								    <div class="service-square"
-								         onclick="openModal('modal-website', '#services/website-creation')"
+								         onclick="openModal('modal-website-creation', '#services/website-creation')"
 								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
 								      <strong>💻 Personal Website Creation</strong><br>
 								      A customized website to showcase your work, services, or brand.
@@ -193,7 +193,7 @@
 								  </li>
 								  <li>
 								    <div class="service-square"
-								         onclick="openModal('modal-coaching', '#services/career-coaching')"
+								         onclick="openModal('modal-career-coaching', '#services/career-coaching')"
 								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
 								      <strong>🧭 Career Coaching</strong><br>
 								      Clarify goals, plan your path, and move forward with confidence.
@@ -201,7 +201,7 @@
 								  </li>
 								  <li>
 								    <div class="service-square"
-								         onclick="openModal('modal-jobsearch', '#services/job-search')"
+								         onclick="openModal('modal-job-search', '#services/job-search')"
 								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
 								      <strong>📈 Job Search Strategy</strong><br>
 								      Learn how to search smart, apply strategically, and track progress.
@@ -209,7 +209,7 @@
 								  </li>
 								  <li>
 								    <div class="service-square"
-								         onclick="openModal('modal-mockinterviews', '#services/mock-interviews')"
+								         onclick="openModal('modal-mock-interviews', '#services/mock-interviews')"
 								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
 								      <strong>🎤 Mock Interviews</strong><br>
 								      Practice your answers and build confidence.
@@ -787,7 +787,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
   function closeModal(id) {
     document.getElementById(id).style.display = 'none';
-    // Reset URL to #services when modal closes
     history.replaceState(null, null, '#services');
   }
 
@@ -802,81 +801,61 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     });
   });
 
-  // Open modals based on hash on page load
+  // Hash → Modal ID mapping
+  const modalMap = {
+    '#services/cv-review': 'modal-cv-review',
+    '#services/linkedin-optimization': 'modal-linkedin-optimization',
+    '#services/cover-letter': 'modal-cover-letter',
+    '#services/global-cv': 'modal-global-cv',
+    '#services/website-creation': 'modal-website-creation',
+    '#services/career-coaching': 'modal-career-coaching',
+    '#services/job-search': 'modal-job-search',
+    '#services/mock-interviews': 'modal-mock-interviews'
+  };
+
+  // On page load
   window.onload = function () {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => modal.style.display = 'none');
 
     const hash = window.location.hash;
-
     if (hash.startsWith('#services/')) {
-      // Map your hashes to modal IDs
-      const modalMap = {
-        '#services/cv-review': 'modal-cv-review',
-        '#services/linkedin-optimization': 'modal-linkedin-optimization',
-        '#services/cover-letter-writing': 'modal-cover-letter',
-        '#services/cv-tailoring-global': 'modal-global-cv',
-        '#services/personal-website': 'modal-website-creation',
-        '#services/career-coaching': 'modal-career-coaching',
-        '#services/job-search-strategy': 'modal-job-search',
-        '#services/mock-interviews': 'modal-mock-interviews'
-      };
-
       const modalId = modalMap[hash];
       if (modalId) {
         document.getElementById(modalId).style.display = 'block';
-
         const section = document.getElementById('services');
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
       }
     } else if (hash === '#services') {
       const section = document.getElementById('services');
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  // Close modals when hash changes (e.g. user clicks back)
+  // Re-open modal on hash change (e.g. browser back button)
   window.addEventListener('hashchange', () => {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => modal.style.display = 'none');
 
     const hash = window.location.hash;
-    if (hash.startsWith('#services/')) {
-      const modalMap = {
-        '#services/cv-review': 'modal-cv-review',
-        '#services/linkedin-optimization': 'modal-linkedin-optimization',
-        '#services/cover-letter-writing': 'modal-cover-letter',
-        '#services/cv-tailoring-global': 'modal-global-cv',
-        '#services/personal-website': 'modal-website-creation',
-        '#services/career-coaching': 'modal-career-coaching',
-        '#services/job-search-strategy': 'modal-job-search',
-        '#services/mock-interviews': 'modal-mock-interviews'
-      };
-      const modalId = modalMap[hash];
-      if (modalId) {
-        document.getElementById(modalId).style.display = 'block';
-      }
+    const modalId = modalMap[hash];
+    if (modalId) {
+      document.getElementById(modalId).style.display = 'block';
     }
   });
 
-  // Scroll arrow hide/show inside #modal-cv-review (optional)
-  const modalContent = document.querySelector('#modal-cv-review > div');
-  if (modalContent) {
-    const scrollArrow = modalContent.querySelector('.scroll-arrow');
-    if (scrollArrow) {
-      modalContent.addEventListener('scroll', () => {
-        if (modalContent.scrollTop > 20) {
-          scrollArrow.style.display = 'none';
-        } else {
-          scrollArrow.style.display = 'block';
-        }
-      });
+  // Scroll arrow behavior inside modal-cv-review (optional)
+  document.addEventListener('DOMContentLoaded', () => {
+    const modalContent = document.querySelector('#modal-cv-review > div');
+    if (modalContent) {
+      const scrollArrow = modalContent.querySelector('.scroll-arrow');
+      if (scrollArrow) {
+        modalContent.addEventListener('scroll', () => {
+          scrollArrow.style.display = modalContent.scrollTop > 20 ? 'none' : 'block';
+        });
+      }
     }
-  }
+  });
 </script>
 </body>
 	</body>
