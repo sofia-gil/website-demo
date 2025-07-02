@@ -159,10 +159,12 @@
 								  Feedback + design for modern, professional impact.
 								</div>
 								</li>
-								 <li style="background-color: #2c2c2c; padding: 20px; border-radius: 12px;">
-							          <strong>🔍 LinkedIn Optimization</strong><br>
-							          Get noticed by recruiters with a polished, keyword-rich profile.
-							        </li>
+								 <li>
+								    <div class="service-square" onclick="openModal('modal-linkedin-optimization')" style="cursor:pointer; background-color:#2c2c2c; padding:20px; border-radius:12px; color:white;">
+								      <strong>🔍 LinkedIn Optimization</strong><br>
+								      Get noticed by recruiters with a polished, keyword-rich profile.
+								    </div>
+								  </li>
 							       <li style="background-color: #2c2c2c; padding: 20px; border-radius: 12px;">
 								    <strong>📝 Cover Letter Writing</strong><br>
 								    Tailored cover letters for your target roles.
@@ -187,7 +189,8 @@
 							          <strong>🎤 Mock Interviews</strong><br>
 							          Practice your answers and build confidence.
 							        </li> 
-							      </ul><div id="modal-cv-review" class="modal"
+							      </ul>
+									 <div id="modal-cv-review" class="modal"
 								     onclick="if(event.target === this) closeModal('modal-cv-review')"
 								     style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
 								  <div style="
@@ -226,10 +229,28 @@
 								    <p>Payments accepted in EUR, USD, GBP, CAD, AUD, or NZD, equivalent to the euro price at time of payment.</p>
 								
 								    <p><a href="https://sofiagil.site/#contact">Contact me!</a></p>
-								
 								  </div>
 								</div>
-															
+								<div id="modal-linkedin" class="modal" onclick="if(event.target === this) closeModal('modal-linkedin')" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
+  <div style="background:#2c2c2c; color:white; max-width:550px; max-height:75vh; overflow-y:auto; margin:10vh auto; padding:20px; border-radius:12px; position:relative; font-family: Arial, sans-serif; box-sizing:border-box;">
+    <button onclick="closeModal('modal-linkedin-optimization')" style="position:absolute; top:10px; right:10px; background:transparent; border:none; color:white; font-size:24px; cursor:pointer;">×</button>
+    <h3>🔍 LinkedIn Optimization</h3>
+    <p>Make recruiters stop scrolling and start clicking. I’ll help you create a polished, keyword-rich LinkedIn profile that tells your professional story clearly and effectively.</p>
+    <p>Here’s how it works:</p>
+    <ul>
+      <li><strong>Step 1:</strong> Share your current LinkedIn URL and career goals.</li>
+      <li><strong>Step 2:</strong> Choose your package (profile rewrite, headline & summary, or full optimization).</li>
+      <li><strong>Step 3:</strong> Receive a tailored, recruiter-friendly profile ready to attract more opportunities.</li>
+    </ul>
+    <p><strong>Pricing:</strong></p>
+    <p style="margin-left: 20px;">
+      • Basic profile audit + suggestions: €30<br>
+      • Profile rewrite (headline + summary): €55<br>
+      • Full profile makeover + keyword strategy: €85
+    </p>
+    <p><a href="https://sofiagil.site/#contact">Contact me!</a></p>
+  </div>
+</div>							
 							      <p style="margin-top: 40px;">
 							        <a href="#contact" style="background-color: #fff; color: #1f1f1f; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">
 							          Contact Me to Get Started
@@ -623,8 +644,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
       // Map your hashes to modal IDs
       const modalMap = {
         '#services/cv-review': 'modal-cv-review',
-        '#services/linkedin-optimization': 'modal-linkedin',
-        // add your other modals here...
+        '#services/linkedin-optimization': 'modal-linkedin-optimization',
+        '#services/cover-letter-writing': 'modal-coverletter',
+        '#services/cv-tailoring-global': 'modal-cvtailoring',
+        '#services/personal-website': 'modal-website',
+        '#services/career-coaching': 'modal-coaching',
+        '#services/job-search-strategy': 'modal-jobsearch',
+        '#services/mock-interviews': 'modal-mockinterviews'
       };
 
       const modalId = modalMap[hash];
@@ -649,13 +675,17 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => modal.style.display = 'none');
 
-    // If the new hash is a modal hash, open it
     const hash = window.location.hash;
     if (hash.startsWith('#services/')) {
       const modalMap = {
         '#services/cv-review': 'modal-cv-review',
-        '#services/linkedin-optimization': 'modal-linkedin',
-        // add your other modals here...
+        '#services/linkedin-optimization': 'modal-linkedin-optimization',
+        '#services/cover-letter-writing': 'modal-coverletter',
+        '#services/cv-tailoring-global': 'modal-cvtailoring',
+        '#services/personal-website': 'modal-website',
+        '#services/career-coaching': 'modal-coaching',
+        '#services/job-search-strategy': 'modal-jobsearch',
+        '#services/mock-interviews': 'modal-mockinterviews'
       };
       const modalId = modalMap[hash];
       if (modalId) {
@@ -663,20 +693,21 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
       }
     }
   });
-</script>
 
-<!-- Add this just before </body> -->
-<script>
+  // Scroll arrow hide/show inside #modal-cv-review (optional)
   const modalContent = document.querySelector('#modal-cv-review > div');
-  const scrollArrow = modalContent.querySelector('.scroll-arrow');
-
-  modalContent.addEventListener('scroll', () => {
-    if (modalContent.scrollTop > 20) {
-      scrollArrow.style.display = 'none';
-    } else {
-      scrollArrow.style.display = 'block';
+  if (modalContent) {
+    const scrollArrow = modalContent.querySelector('.scroll-arrow');
+    if (scrollArrow) {
+      modalContent.addEventListener('scroll', () => {
+        if (modalContent.scrollTop > 20) {
+          scrollArrow.style.display = 'none';
+        } else {
+          scrollArrow.style.display = 'block';
+        }
+      });
     }
-  });
+  }
 </script>
 </body>
 	</body>
