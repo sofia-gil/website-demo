@@ -1677,18 +1677,27 @@ input, select, textarea {
 
 
 /* Arrow bounce animation */
+.modal > div {
+  position: relative;
+}
+
 .scroll-arrow {
-  position: absolute;
-  bottom: 0;               /* Stick right to the bottom */
-  left: 50%;              /* Center horizontally */
+  position: sticky;  /* makes it stay visible at bottom until scrolled */
+  bottom: 10px;
+  left: 50%;
   transform: translateX(-50%);
   font-size: 28px;
   color: rgba(255, 255, 255, 0.7);
   pointer-events: none;
   user-select: none;
   z-index: 10;
-  width: 100%;            /* Full width container */
-  text-align: center;     /* Center the arrow */
-  background: linear-gradient(to top, #2c2c2c 40%, transparent); /* Fade behind arrow */
-  padding-bottom: 10px;   /* Some padding below arrow */
+  background: linear-gradient(to top, #2c2c2c 80%, transparent);
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hide arrow when user scrolls */
+.modal > div::-webkit-scrollbar {
+  display: none; /* optional: hide scrollbar */
 }
