@@ -152,11 +152,12 @@
 							      </p>
 							      <ul style="list-style: none; padding: 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
 							       <li>
-								  <div class="service-square" onclick="openModal('modal-cv-review')" 
-								     style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
-								  <strong>📄 CV Review & Redesignnn</strong><br>
-								  Feedback + design for modern, professional impact.
-								</div>
+								 <div class="service-square" 
+     onclick="openModal('modal-cv-review', '#services/cv-review')" 
+     style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
+  <strong>📄 CV Review & Redesign</strong><br>
+  Feedback + design for modern, professional impact.
+</div>
 								</li>
 								
 								<div id="modal-cv-review" class="modal"
@@ -577,38 +578,80 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 		<script>
-  function openModal(id) {
+  function openModal(id, hash) {
     document.getElementById(id).style.display = 'block';
-    history.replaceState(null, null, ' '); // Remove #modal-id from URL
+    if (hash) {
+      history.replaceState(null, null, hash);
+    }
   }
 
   function closeModal(id) {
     document.getElementById(id).style.display = 'none';
+    // Reset URL to #services when modal closes
+    history.replaceState(null, null, '#services');
   }
 
   // Close modals on outside click
-  
+  window.addEventListener('click', function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(function(modal) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        history.replaceState(null, null, '#services');
+      }
+    });
+  });
 
-  // Close all modals on page load
+  // Open modals based on hash on page load
   window.onload = function () {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => modal.style.display = 'none');
 
-    // Scroll to #services if that's the hash
-    if (window.location.hash === "#services") {
-      setTimeout(() => {
-        const section = document.getElementById("services");
+    const hash = window.location.hash;
+
+    if (hash.startsWith('#services/')) {
+      // Map your hashes to modal IDs
+      const modalMap = {
+        '#services/cv-review': 'modal-cv-review',
+        '#services/linkedin-optimization': 'modal-linkedin',
+        // add your other modals here...
+      };
+
+      const modalId = modalMap[hash];
+      if (modalId) {
+        document.getElementById(modalId).style.display = 'block';
+
+        const section = document.getElementById('services');
         if (section) {
           section.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
+      }
+    } else if (hash === '#services') {
+      const section = document.getElementById('services');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
-  // Close all modals when the hash (section) changes
+  // Close modals when hash changes (e.g. user clicks back)
   window.addEventListener('hashchange', () => {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => modal.style.display = 'none');
+
+    // If the new hash is a modal hash, open it
+    const hash = window.location.hash;
+    if (hash.startsWith('#services/')) {
+      const modalMap = {
+        '#services/cv-review': 'modal-cv-review',
+        '#services/linkedin-optimization': 'modal-linkedin',
+        // add your other modals here...
+      };
+      const modalId = modalMap[hash];
+      if (modalId) {
+        document.getElementById(modalId).style.display = 'block';
+      }
+    }
   });
 </script>
 	</body>
