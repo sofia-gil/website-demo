@@ -159,7 +159,9 @@
 								  </div>
 								</li>
 								
-								<div id="modal-cv-review" class="modal" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
+								<div id="modal-cv-review" class="modal"
+								     onclick="if(event.target === this) closeModal('modal-cv-review')"
+								     style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
 								  <div style="background: #2c2c2c; color: white; max-width: 420px; margin: 100px auto; padding: 20px; border-radius: 12px; position: relative; font-family: Arial, sans-serif;">
 								    <button onclick="closeModal('modal-cv-review')" 
 								            style="position: absolute; top: 10px; right: 10px; background: transparent; border:none; color: white; font-size: 24px; cursor: pointer;">×</button>
@@ -169,7 +171,7 @@
 								    <p>Ready to take your CV to the next level? I’ll help you showcase your skills and experience with a clean, ATS-friendly design that stands out to recruiters. Here’s how it works:</p>
 								    <ul>
 								      <li><strong>Step 1:</strong> Share your current CV, a brief overview of your career so far, and 2–3 job listings you’re interested in.</li>
-								      <li><strong>Step 2:</strong> Choose your package.</li>
+								      <li><strong>Step 2:</strong> Choose your packageeeeeeeeeeeeee.</li>
 								      <li><strong>Step 3:</strong> I provide tailored feedback and redesign your CV for maximum impact, optimized for applicant tracking systems (ATS) used by employers.</li>
 								    </ul>
 								
@@ -583,10 +585,17 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     document.getElementById(id).style.display = 'none';
   }
 
-  // Ensure all modals are closed on page load
-  window.onload = function() {
+  // Close all modals on page load
+  window.onload = function () {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => modal.style.display = 'none');
+
+    // Optional: Scroll to top of services section if arriving from another tab
+    if (window.location.hash === "#services") {
+      setTimeout(() => {
+        window.scrollTo({ top: document.getElementById("services").offsetTop, behavior: 'smooth' });
+      }, 100);
+    }
   };
 </script>
 	</body>
