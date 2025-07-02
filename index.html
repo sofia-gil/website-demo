@@ -167,31 +167,55 @@
 								    Get noticed by recruiters with a polished, keyword-rich profile.
 								  </div>
 								</li>
-							       <li style="background-color: #2c2c2c; padding: 20px; border-radius: 12px;">
-								    <strong>📝 Cover Letter Writing</strong><br>
-								    Tailored cover letters for your target roles.
-								  </li> 
-								<li style="background-color: #2c2c2c; padding: 20px; border-radius: 12px;">
-								    <strong>🌍 CV Tailoring for Global Roles</strong><br>
-								    Adapt your CV to meet expectations in different countries.
+							       <li>
+								    <div class="service-square"
+								         onclick="openModal('modal-coverletter', '#services/cover-letter')"
+								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
+								      <strong>📝 Cover Letter Writing</strong><br>
+								      Tailored cover letters for your target roles.
+								    </div>
 								  </li>
-								<li style="background-color: #2c2c2c; padding: 20px; border-radius: 12px;">
-								    <strong>💻 Personal Website Creation</strong><br>
-								    A customized website to showcase your work, services, or brand.
+								  <li>
+								    <div class="service-square"
+								         onclick="openModal('modal-cvtailoring', '#services/global-cv')"
+								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
+								      <strong>🌍 CV Tailoring for Global Roles</strong><br>
+								      Adapt your CV to meet expectations in different countries.
+								    </div>
 								  </li>
-								      <li style="background-color: #2c2c2c; padding: 20px; border-radius: 12px;">
-								    <strong>🧭 Career Coaching</strong><br>
-								    Clarify goals, plan your path, and move forward with confidence.
+								  <li>
+								    <div class="service-square"
+								         onclick="openModal('modal-website', '#services/website-creation')"
+								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
+								      <strong>💻 Personal Website Creation</strong><br>
+								      A customized website to showcase your work, services, or brand.
+								    </div>
 								  </li>
-								 <li style="background-color: #2c2c2c; padding: 20px; border-radius: 12px;">
-								    <strong>📈 Job Search Strategy</strong><br>
-								    Learn how to search smart, apply strategically, and track progress.
+								  <li>
+								    <div class="service-square"
+								         onclick="openModal('modal-coaching', '#services/career-coaching')"
+								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
+								      <strong>🧭 Career Coaching</strong><br>
+								      Clarify goals, plan your path, and move forward with confidence.
+								    </div>
 								  </li>
-								<li style="background-color: #2c2c2c; padding: 20px; border-radius: 12px;">
-							          <strong>🎤 Mock Interviews</strong><br>
-							          Practice your answers and build confidence.
-							        </li> 
-							      </ul>
+								  <li>
+								    <div class="service-square"
+								         onclick="openModal('modal-jobsearch', '#services/job-search')"
+								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
+								      <strong>📈 Job Search Strategy</strong><br>
+								      Learn how to search smart, apply strategically, and track progress.
+								    </div>
+								  </li>
+								  <li>
+								    <div class="service-square"
+								         onclick="openModal('modal-mockinterviews', '#services/mock-interviews')"
+								         style="cursor: pointer; background-color: #2c2c2c; padding: 20px; border-radius: 12px; color: white;">
+								      <strong>🎤 Mock Interviews</strong><br>
+								      Practice your answers and build confidence.
+								    </div>
+								  </li>
+								</ul>
 									 <div id="modal-cv-review" class="modal"
 								     onclick="if(event.target === this) closeModal('modal-cv-review')"
 								     style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
@@ -252,7 +276,150 @@
 								    </p>
 								    <p><a href="https://sofiagil.site/#contact">Contact me!</a></p>
 								  </div>
-								</div>							
+								</div>		
+									 <!-- Cover Letter Modal -->
+<div id="modal-cover-letter" class="modal" 
+     onclick="if(event.target === this) closeModal('modal-cover-letter')" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
+  <div style="background:#2c2c2c; color:white; max-width:550px; max-height:75vh; overflow-y:auto; margin:10vh auto; padding:20px; border-radius:12px; position:relative; font-family: Arial, sans-serif; box-sizing:border-box;">
+    <button onclick="closeModal('modal-cover-letter')" style="position:absolute; top:10px; right:10px; background:transparent; border:none; color:white; font-size:24px; cursor:pointer;">×</button>
+    <h3>📝 Cover Letter Writing</h3>
+    <p>Tailored cover letters for your target roles that highlight your strengths and match job descriptions perfectly.</p>
+    <p>Here’s how it works:</p>
+    <ul>
+      <li><strong>Step 1:</strong> Share your CV, the job listing, and key points to emphasize.</li>
+      <li><strong>Step 2:</strong> Choose single or multiple tailored cover letters.</li>
+      <li><strong>Step 3:</strong> Receive a polished cover letter that opens doors.</li>
+    </ul>
+    <p><strong>Pricing:</strong></p>
+    <p style="margin-left: 20px;">
+      • Single cover letter: €35<br>
+      • Two tailored cover letters: €60<br>
+      • Cover letter + LinkedIn summary add-on: €80
+    </p>
+    <p><a href="https://sofiagil.site/#cover-letter">Contact me!</a></p>
+  </div>
+</div>
+
+<!-- Global CV Modal -->
+<div id="modal-global-cv" class="modal" 
+     onclick="if(event.target === this) closeModal('modal-global-cv')" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
+  <div style="background:#2c2c2c; color:white; max-width:550px; max-height:75vh; overflow-y:auto; margin:10vh auto; padding:20px; border-radius:12px; position:relative; font-family: Arial, sans-serif; box-sizing:border-box;">
+    <button onclick="closeModal('modal-global-cv')" style="position:absolute; top:10px; right:10px; background:transparent; border:none; color:white; font-size:24px; cursor:pointer;">×</button>
+    <h3>🌍 Global CV Tailoring</h3>
+    <p>Adapt your CV to meet the expectations of different countries and industries, making your profile truly global-ready.</p>
+    <p>Here’s how it works:</p>
+    <ul>
+      <li><strong>Step 1:</strong> Share your current CV and target countries or industries.</li>
+      <li><strong>Step 2:</strong> Choose your tailoring package.</li>
+      <li><strong>Step 3:</strong> Receive a CV optimized for applicant tracking systems and local recruiter preferences.</li>
+    </ul>
+    <p><strong>Pricing:</strong></p>
+    <p style="margin-left: 20px;">
+      • Basic CV adaptation: €40<br>
+      • Advanced CV rewrite: €70<br>
+      • Full CV + cover letter package: €110
+    </p>
+    <p><a href="https://sofiagil.site/#global-cv">Contact me!</a></p>
+  </div>
+</div>
+
+<!-- Website Creation Modal -->
+<div id="modal-website-creation" class="modal" 
+     onclick="if(event.target === this) closeModal('modal-website-creation')" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
+  <div style="background:#2c2c2c; color:white; max-width:550px; max-height:75vh; overflow-y:auto; margin:10vh auto; padding:20px; border-radius:12px; position:relative; font-family: Arial, sans-serif; box-sizing:border-box;">
+    <button onclick="closeModal('modal-website-creation')" style="position:absolute; top:10px; right:10px; background:transparent; border:none; color:white; font-size:24px; cursor:pointer;">×</button>
+    <h3>🌐 Personal Website Creation</h3>
+    <p>Build a professional online portfolio or personal brand website that highlights your skills and experience.</p>
+    <p>Here’s how it works:</p>
+    <ul>
+      <li><strong>Step 1:</strong> Share your career goals and preferred design style.</li>
+      <li><strong>Step 2:</strong> Choose your package from basic landing page to full portfolio site.</li>
+      <li><strong>Step 3:</strong> Receive a clean, mobile-friendly website ready to impress recruiters and clients.</li>
+    </ul>
+    <p><strong>Pricing:</strong></p>
+    <p style="margin-left: 20px;">
+      • Basic one-page site: €150<br>
+      • Portfolio site with multiple sections: €300<br>
+      • Full custom website with blog and contact form: €500
+    </p>
+    <p><a href="https://sofiagil.site/#website-creation">Contact me!</a></p>
+  </div>
+</div>
+
+<!-- Career Coaching Modal -->
+<div id="modal-career-coaching" class="modal" 
+     onclick="if(event.target === this) closeModal('modal-career-coaching')" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
+  <div style="background:#2c2c2c; color:white; max-width:550px; max-height:75vh; overflow-y:auto; margin:10vh auto; padding:20px; border-radius:12px; position:relative; font-family: Arial, sans-serif; box-sizing:border-box;">
+    <button onclick="closeModal('modal-career-coaching')" style="position:absolute; top:10px; right:10px; background:transparent; border:none; color:white; font-size:24px; cursor:pointer;">×</button>
+    <h3>🚀 Career Coaching</h3>
+    <p>Get personalized guidance to clarify your career goals, build confidence, and develop a winning job search strategy.</p>
+    <p>Here’s how it works:</p>
+    <ul>
+      <li><strong>Step 1:</strong> Share your current situation and aspirations.</li>
+      <li><strong>Step 2:</strong> Select coaching sessions tailored to your needs.</li>
+      <li><strong>Step 3:</strong> Work together on resumes, interviews, networking, and more.</li>
+    </ul>
+    <p><strong>Pricing:</strong></p>
+    <p style="margin-left: 20px;">
+      • Single 1-hour session: €70<br>
+      • Package of 4 sessions: €250<br>
+      • Full ongoing coaching plan: €600
+    </p>
+    <p><a href="https://sofiagil.site/#career-coaching">Contact me!</a></p>
+  </div>
+</div>
+
+<!-- Job Search Modal -->
+<div id="modal-job-search" class="modal" 
+     onclick="if(event.target === this) closeModal('modal-job-search')" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
+  <div style="background:#2c2c2c; color:white; max-width:550px; max-height:75vh; overflow-y:auto; margin:10vh auto; padding:20px; border-radius:12px; position:relative; font-family: Arial, sans-serif; box-sizing:border-box;">
+    <button onclick="closeModal('modal-job-search')" style="position:absolute; top:10px; right:10px; background:transparent; border:none; color:white; font-size:24px; cursor:pointer;">×</button>
+    <h3>🔎 Job Search Support</h3>
+    <p>Maximize your job search efficiency with expert support on applications, networking, and employer research.</p>
+    <p>Here’s how it works:</p>
+    <ul>
+      <li><strong>Step 1:</strong> Share your target roles and industries.</li>
+      <li><strong>Step 2:</strong> Choose the level of support you need.</li>
+      <li><strong>Step 3:</strong> Get personalized tips, tools, and resources to land interviews faster.</li>
+    </ul>
+    <p><strong>Pricing:</strong></p>
+    <p style="margin-left: 20px;">
+      • Basic job search audit: €40<br>
+      • Application strategy + networking plan: €80<br>
+      • Full job search coaching: €150
+    </p>
+    <p><a href="https://sofiagil.site/#job-search">Contact me!</a></p>
+  </div>
+</div>
+
+<!-- Mock Interviews Modal -->
+<div id="modal-mock-interviews" class="modal" 
+     onclick="if(event.target === this) closeModal('modal-mock-interviews')" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7);">
+  <div style="background:#2c2c2c; color:white; max-width:550px; max-height:75vh; overflow-y:auto; margin:10vh auto; padding:20px; border-radius:12px; position:relative; font-family: Arial, sans-serif; box-sizing:border-box;">
+    <button onclick="closeModal('modal-mock-interviews')" style="position:absolute; top:10px; right:10px; background:transparent; border:none; color:white; font-size:24px; cursor:pointer;">×</button>
+    <h3>🎯 Mock Interviews</h3>
+    <p>Practice your interview skills with realistic mock interviews and receive detailed feedback.</p>
+    <p>Here’s how it works:</p>
+    <ul>
+      <li><strong>Step 1:</strong> Share your target role and interview type.</li>
+      <li><strong>Step 2:</strong> Schedule one or multiple mock interview sessions.</li>
+      <li><strong>Step 3:</strong> Get personalized feedback and improvement tips.</li>
+    </ul>
+    <p><strong>Pricing:</strong></p>
+    <p style="margin-left: 20px;">
+      • Single mock interview (1 hour): €50<br>
+      • Package of 3 mock interviews: €130<br>
+      • Full interview prep program: €250
+    </p>
+    <p><a href="https://sofiagil.site/#mock-interviews">Contact me!</a></p>
+  </div>
+</div>
 							      <p style="margin-top: 40px;">
 							        <a href="#contact" style="background-color: #fff; color: #1f1f1f; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">
 							          Contact Me to Get Started
