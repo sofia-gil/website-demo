@@ -1697,3 +1697,10 @@ input, select, textarea {
 .services-list > li {
 	display: flex ;
 }
+
+@media screen and (max-width: 736px) {
+
+		.services-list > li {
+	display: block ;
+}
+	}
