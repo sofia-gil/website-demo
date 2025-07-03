@@ -1693,3 +1693,7 @@ input, select, textarea {
 .modal-content::-webkit-scrollbar-track {
   background: rgba(0,0,0,0.1);
 }
+
+.services-list > li {
+	display: flex ;
+}
